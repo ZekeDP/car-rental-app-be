@@ -28,5 +28,27 @@ A simple and effective system to monitor and manage car bookings across company-
 
 ---
 
+# 🗄️ H2 Database Dev Configuration
+
+This project uses **H2** as the in-memory database for local development and testing.
+
+---
+
+## ⚙️ Configuration Details
+
+- **Database URL**:  
+  `jdbc:h2:mem:carbookingdb`
+
+  This creates a non-persistent in-memory database named `carbookingdb`.
+
+- **H2 Console Access**:  
+  Open in your browser:  
+  [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
+
+  **JDBC URL to use in console**:  
+  `jdbc:h2:mem:carbookingdb`
+
+---
+
 ## 🧱 Project Structure
 

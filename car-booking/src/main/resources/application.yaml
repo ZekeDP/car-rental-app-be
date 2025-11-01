@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:carbookingdb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+    initialization-mode: always # Ensure the datasource is initialized, remove if not needed.
+  jpa:
+    hibernate:
+      ddl-auto: update   # Use `create-drop` if you want it cleared each run
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  sql:
+    init:
+      mode: always
