@@ -26,7 +26,7 @@ public class CarController {
     }
 
     @GetMapping("/{id}")
-    public Car getCarById(@PathVariable Long id) {
+    public Car getCarById(@PathVariable String id) {
         return carRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Car not found with ID: " + id));
     }
@@ -43,7 +43,7 @@ public class CarController {
     // }
 
     @DeleteMapping("/{id}")
-    public void deleteCar(@PathVariable Long id) {
+    public void deleteCar(@PathVariable String id) {
         carRepository.deleteById(id);
     }
 
