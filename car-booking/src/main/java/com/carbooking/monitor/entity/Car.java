@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "cars")
+@Table(name = "car")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,19 +16,20 @@ public class Car {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
-    private String name;
+    @Column(name = "plate_number")
+    private String plateNumber;
 
     private String model;
 
-    @Column(name = "image_url")
-    private String imageUrl;
+    @Column(name = "car_type")
+    private String carType;
 
-    @Column(name = "owner_name")
-    private String ownerName;
+    @Column(name = "year_model")
+    private Integer yearModel;
 
-    // You can optionally include enum or boolean fields like:
-    // private boolean isSubcontractorOwned;
+    @Column(name = "car_status")
+    private String status;
 
 }

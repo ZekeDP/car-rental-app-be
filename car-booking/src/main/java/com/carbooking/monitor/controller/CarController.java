@@ -31,16 +31,16 @@ public class CarController {
                 .orElseThrow(() -> new RuntimeException("Car not found with ID: " + id));
     }
 
-    @PutMapping("/{id}")
-    public Car updateCar(@PathVariable Long id, @RequestBody Car updatedCar) {
-        Car car = carRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Car not found"));
-        car.setName(updatedCar.getName());
-        car.setModel(updatedCar.getModel());
-        car.setImageUrl(updatedCar.getImageUrl());
-        car.setOwnerName(updatedCar.getOwnerName());
-        return carRepository.save(car);
-    }
+    // @PutMapping("/{id}")
+    // public Car updateCar(@PathVariable Long id, @RequestBody Car updatedCar) {
+    //     Car car = carRepository.findById(id)
+    //             .orElseThrow(() -> new RuntimeException("Car not found"));
+    //     car.setName(updatedCar.getName());
+    //     car.setModel(updatedCar.getModel());
+    //     car.setImageUrl(updatedCar.getImageUrl());
+    //     car.setOwnerName(updatedCar.getOwnerName());
+    //     return carRepository.save(car);
+    // }
 
     @DeleteMapping("/{id}")
     public void deleteCar(@PathVariable Long id) {
