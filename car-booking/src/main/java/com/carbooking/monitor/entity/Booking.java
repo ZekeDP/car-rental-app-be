@@ -1,38 +1,45 @@
-// package com.carbooking.monitor.entity;
+package com.carbooking.monitor.entity;
 
-// import jakarta.persistence.*;
-// import lombok.*;
+import jakarta.persistence.*;
+import lombok.*;
 
-// import java.time.LocalDateTime;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
-// @Entity
-// @Table(name = "bookings")
-// @Data
-// @NoArgsConstructor
-// @AllArgsConstructor
-// @Builder
-// public class Booking {
+@Entity
+@Table(name = "BOOKING")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Booking {
 
-//     @Id
-//     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//     private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
+    private String id;
 
-//     // Many bookings can refer to one car
-//     @ManyToOne
-//     @JoinColumn(name = "car_id", nullable = false)
-//     private Car car;
+    @Column(name = "BOOKING_START_DATE")
+    private LocalDateTime bookingStartDate;
 
-//     private LocalDateTime startDate;
+    @Column(name = "BOOKING_END_DATE")
+    private LocalDateTime bookingEndDate;
 
-//     private LocalDateTime endDate;
+    // Many bookings can refer to one car
+    @ManyToOne
+    @JoinColumn(name = "CAR_ID", nullable = false)
+    private Car car;
 
-//     @Column(name = "renter_name", nullable = false)
-//     private String renterName;
+    @ManyToOne
+    @JoinColumn(name = "CUSTOMER_ID", nullable = false)
+    private Customer customer;
 
+    @Column(name = "BOOKING_STATUS")
+    private String bookingStatus; // e.g., 'PENDING','CONFIRMED','CANCELLED'
 
-//     private String paymentStatus; // e.g., "PAID", "UNPAID", "PARTIAL"
+    @Column(name = "DATE_CREATED")
+    private OffsetDateTime dateCreated;
 
-//     private Double amountPaid;
-
-//     // Extendable later for audit fields, payment IDs, etc.
-// }
+    @Column(name = "DATE_UPDATED")
+    private OffsetDateTime dateUpdated;
+}
